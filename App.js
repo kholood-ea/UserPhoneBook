@@ -1,9 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import React,{useState,useEffect} from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
+import React,{useState} from 'react';
+import { View, } from 'react-native';
 import GetContactsButton from './src/Components/GetContactsButton'
-import {requestPermissionsAsync,getContactsAsync,Fields} from 'expo-contacts'
+import {requestPermissionsAsync,getContactsAsync} from 'expo-contacts'
 import ContactsList from './src/Components/ContactsList'
+
+
 export default function App() {
 
   //store contacts to pass it to list
@@ -11,7 +12,7 @@ export default function App() {
 
 //Asking for permission to access address Book
 //Gets all contact from book 
-   const retrieveContacts=async()=>{
+  const retrieveContacts=async()=>{
     const { status } = await requestPermissionsAsync();
     if (status === 'granted') {
       const { data } = await getContactsAsync();
@@ -25,7 +26,7 @@ export default function App() {
 
   return (
     <>
-      <View style={{height:'15%',width:'100%',backgroundColor:'black'}}>
+      <View testID={"application"} style={{height:'15%',width:'100%',backgroundColor:'black'}}>
     </View>
       <ContactsList allContacts={allContacts}/>
       <GetContactsButton retrieveContacts={retrieveContacts}/>

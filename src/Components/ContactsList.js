@@ -8,10 +8,11 @@ export default ({allContacts})=>{
     
     return(
 
-       !listHidden?(<ScrollView style={{marginTop:'10%'}}>
+       !listHidden?(<ScrollView style={{marginTop:'10%'}} testID={'contact-list'}>
 
             {allContacts.map((contact,index)=>
               <SingleContactCard 
+              testID={'single-contact'}
               contact={contact}  
               index ={index} 
                key ={index}
@@ -27,6 +28,7 @@ export default ({allContacts})=>{
         listHidden && selectedContact &&
             <SingleContactCard 
             setSelectedContact={()=>setSelectedContact(null)}
+            testID={'selected-contact'}
             contact={selectedContact}  
            setListHidden={setListHidden}
            listHidden={listHidden}

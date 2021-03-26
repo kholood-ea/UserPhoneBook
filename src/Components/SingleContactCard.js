@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {View,Text,TouchableOpacity,Image,Platform} from 'react-native'
 
-export default ({contact,index,setSelectedContact,setListHidden,listHidden})=>{
+export default ({testID, contact, index, setSelectedContact, setListHidden, listHidden})=>{
    
     return(
         <TouchableOpacity 
         style={{borderBottomWidth:1,borderColor:'grey',
         width:'100%',padding:'2%' ,flexDirection:'row'}}
+        testID={testID}
 
         key={index} 
         
